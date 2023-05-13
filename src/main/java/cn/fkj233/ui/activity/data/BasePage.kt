@@ -5,6 +5,7 @@ package cn.fkj233.ui.activity.data
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.view.View
+import android.widget.ListView
 import android.widget.TextView
 import cn.fkj233.ui.activity.MIUIActivity
 import cn.fkj233.ui.activity.fragment.MIUIFragment
@@ -41,6 +42,22 @@ abstract class BasePage {
 
     fun ImageWithText(authorHead: Drawable, authorName: String, authorTips: String? = null, round: Float = 30f, onClickListener: (() -> Unit)? = null, dataBindingRecv: DataBinding.Binding.Recv? = null) {
         itemList.add(ImageTextV(authorHead, authorName, authorTips, round, onClickListener, dataBindingRecv))
+    }
+
+    fun ImageView(drawable: Drawable, size: Float = 60f, position: Int = ImageV.POSITION_LEFT, round: Float = 0f, dataBindingRecv: DataBinding.Binding.Recv? = null, onClickListener: (() -> Unit)? = null) {
+        itemList.add(ImageV(drawable, size, position, round, dataBindingRecv, onClickListener))
+    }
+
+    fun ImageTextWithSwitchView(imageV: ImageV, textV: TextV, switchV: SwitchV, dataBindingRecv: DataBinding.Binding.Recv? = null) {
+        itemList.add(ImageTextWithSwitchV(imageV, textV, switchV, dataBindingRecv))
+    }
+
+    fun ImageTextSummaryWithSwitchView(imageV: ImageV, textSummaryV: TextSummaryV, switchV: SwitchV, dataBindingRecv: DataBinding.Binding.Recv? = null) {
+        itemList.add(ImageTextSummaryWithSwitchV(imageV, textSummaryV, switchV, dataBindingRecv))
+    }
+
+    fun List(block: (ListView.() -> Unit)? = null) {
+        itemList.add(ListV(block))
     }
 
     fun Page(pageHead: Drawable, pageName: String? = null, pageNameId: Int? = null, round: Float = 0f, onClickListener: (() -> Unit)? = null, dataBindingRecv: DataBinding.Binding.Recv? = null) {
