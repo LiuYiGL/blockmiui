@@ -77,9 +77,9 @@ class SpinnerV(var currentValue: String, val dropDownWidth: Float = 150F, val da
                         select = it
                         it.width = dp2px(context, dropDownWidth)
                         if (isRtl(context))
-                            it.setPadding(dp2px(context, 5f), 0, dp2px(context, 30f), 0)
+                            it.setPadding(dp2px(context, 5f), 0, dp2px(context, 10f), 0)
                         else
-                            it.setPadding(dp2px(context, 30f), 0, dp2px(context, 5f), 0)
+                            it.setPadding(dp2px(context, 10f), 0, dp2px(context, 5f), 0)
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
                             it.paint.typeface = Typeface.create(null, 400, false)
                         } else {
@@ -87,7 +87,9 @@ class SpinnerV(var currentValue: String, val dropDownWidth: Float = 150F, val da
                         }
                         it.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f)
                     },
-                    LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+                    LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f).apply {
+                        gravity = Gravity.CENTER_VERTICAL
+                    }
                 ),
                 LayoutPair(
                     ImageView(context).also {

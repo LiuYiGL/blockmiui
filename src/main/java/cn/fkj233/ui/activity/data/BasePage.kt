@@ -60,6 +60,10 @@ abstract class BasePage {
         itemList.add(ListV(block))
     }
 
+    fun EditTextWithSpinner(text: String = "", hint: String = "",isSingleLine: Boolean = true, editTextWeight: Float = 1f,spinnerV: SpinnerV, dataBindingRecv: DataBinding.Binding.Recv? = null, editCallBacks: ((String) -> Unit)? = null) {
+        itemList.add(EditTextWithSpinnerV(text, hint, isSingleLine, editTextWeight,spinnerV, dataBindingRecv, editCallBacks))
+    }
+
     fun Page(pageHead: Drawable, pageName: String? = null, pageNameId: Int? = null, round: Float = 0f, onClickListener: (() -> Unit)? = null, dataBindingRecv: DataBinding.Binding.Recv? = null) {
         itemList.add(PageV(pageHead, pageName, pageNameId, round, onClickListener, dataBindingRecv))
     }
